@@ -1,0 +1,34 @@
+.svg-sprite-inliner
+  // nascondo lo sprite sheet, ma non con display: none altrimenti gli SVG con gradienti (e forse maschere) non si vedono più... vai a sapere perché
+  visibility: hidden
+  width: 0
+  height: 0
+  position: absolute
+  top: 0
+  left: 0
+  display: none !important
+
+svg
+  box-sizing: border-box
+  width: auto
+  height: auto
+  max-width: 100%
+  display: inline-block
+  // perché la proprietà seguente funzioni, l'SVG originale NON deve avere l'attributo fill inline
+  fill: currentColor
+  /*  altre proprietà specifiche degli SVG manipolabili via CSS */
+  //  fill-opacity: .9
+  //  stroke: currentColor
+  //  stroke-opacity: .9
+  //  stroke-width: 4px
+  //  stroke-dasharray: 10px 20px
+  //  stroke-dashoffset: 20px
+  //  stroke-linecap: round
+  //  stroke-linejoin: round
+
+[role="icon"]
+  // le icone saranno allineate verticalemente rispetto alla line-height:
+  vertical-align: middle
+  // le icone erediteranno la dimensione del testo nel contesto in cui si trovano:
+  width: 1em
+  height: 1em
