@@ -11,7 +11,7 @@
 //        .hero__actions
 
 .hero
-  background-image: linear-gradient(to right bottom, $navy, $hero-body-color)
+  background-image: linear-gradient(to right bottom, $hero-body-color, $navy)
   background-position: center center
   background-repeat: no-repeat
   //background-size: cover
@@ -21,6 +21,7 @@
   position: relative
   border-radius: 100px
   box-shadow: 0 0 10px #888888
+  +margin-bottom(4)
 
 .hero__background--image
   z-index: -1
@@ -66,3 +67,10 @@
   +margin-top(2)
   color: $hero-text-color
   z-index: 1
+
+.hero__actions--link
+  color: $hero-text-color
+
+  &:hover
+    color: $base-body-color
+    text-decoration: none

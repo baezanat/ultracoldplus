@@ -7,22 +7,10 @@
   .top-banner__background--title
     = page.title
 
-section.space--top-3
+section
   .wrap
     .formatted-content.main-text
       = page.paragraph
-
-    .hero style="background-image: #{page.hero_image.file.to_url}"
-      .hero__body
-        .hero__body__inner
-          .hero__heading
-            = page.announcement
-          .hero__actions
-            button.button--black
-              = page.action
-
-      / Test image with lazyload options
-      /= image_lazy(dato.homepage.image, {w: 1920}, [[960, 480], [1080, 720], [1536, 1024], [1920, 1536]])
 
 section.space--both-2
   .wrap
@@ -36,3 +24,15 @@ section.space--both-2
         = image_tag page.logo2.file.to_url, class: 'funding__logo'
       .flex__item-auto.flex-desk-2-12.flex-tab-4-12
         = image_tag page.logo3.file.to_url, class: 'funding__logo'
+
+section
+  .wrap
+    .hero style="background-image: #{page.hero_image.file.to_url}"
+      .hero__body
+        .hero__body__inner
+          .hero__heading
+            = page.announcement
+          .hero__actions
+            button.button--white-outline
+              = link_to 'mailto:sias@lens.unifi.it', class: 'hero__actions--link'
+                = page.action
