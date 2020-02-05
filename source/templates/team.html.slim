@@ -1,0 +1,26 @@
+//- content_for(:head)
+  == dato_meta_tags(page)
+
+section.space--both-2
+  .wrap
+    - if page.title.present?
+      .team__title
+        = page.title
+
+    .grid--middle
+
+      - page.member.each do |memb|
+        
+        .team__grid__item--image
+          = image_tag memb.picture.file.to_url, class: 'team-member__image--small'
+
+        .team__grid__item--text.main-text
+          .strong
+            = memb.name
+          = memb.title
+          br
+          = memb.email
+          br
+          = memb.phone
+
+    .margin--both-3

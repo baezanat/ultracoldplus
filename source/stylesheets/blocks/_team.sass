@@ -1,0 +1,33 @@
+.team__title
+    +margin-top(5)
+    +margin-bottom(3)
+    +font-size(beta)
+    text-align: center
+    color: black
+    text-transform: uppercase
+
+    &::after
+        content: ''
+        border-bottom: 1px solid $light-grey
+        width: 60%
+        margin: auto
+        display: block
+        +margin-top(1)
+
+.team-member__image--small
+    width: 200px
+    height: auto
+    +vertical-margin(2)
+
+.team__grid__item--image
+    @extend .grid__item
+    @extend .width-7-12
+    @extend .grid--center
+    +margin-left(3)
+    
+.team__grid__item--text
+    @extend .grid__item
+    @extend .width-4-12
+
+.strong
+    font-weight: 400

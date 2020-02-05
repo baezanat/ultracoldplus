@@ -17,7 +17,7 @@ activate :directory_indexes
 activate :pagination
 activate :inline_svg
 
-activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: true
+activate :dato, token: ENV.fetch('DATO_API_TOKEN'), live_reload: true, preview: true
 
 webpack_command =
   if build?
@@ -52,13 +52,17 @@ helpers do
   # Custom helper to theme
   def site_nav_menu
     [
-      # dato.about_page,
-      # dato.contact_page
+      dato.team,
+      dato.contact,
+      dato.news,
+      dato.position,
+      dato.project,
+      dato.publication,
     ]
   end
 end
 
-# dato.tap do |dato|
+ dato.tap do |dato|
 #   dato.articles.each do |article|
 #     proxy(
 #       '/articles/#{article.slug}.html',
@@ -102,18 +106,39 @@ end
 #   end
 # end
 
-LOCALES.each do |locale|
-  I18n.with_locale(locale) do
-    prefix = locale == LOCALES[0] ? "" : "/#{locale}"
+  LOCALES.each do |locale|
+    I18n.with_locale(locale) do
+      prefix = locale == LOCALES[0] ? "" : "/#{locale}"
 
-    proxy "#{prefix}/index.html",
-      "/localizable/index.html",
-      locale: locale
-
-    proxy "#{prefix}/contact/index.html",
-      "templates/contact_page.html",
-      locals: { locale: I18n.locale },
-      locale: locale
+      proxy "#{prefix}/index.html",
+        "templates/homepage.html",
+        locals: { page: dato.homepage },
+        locale: locale
+      proxy "#{prefix}/team/index.html",
+        "templates/team.html",
+        locals: { page: dato.team },
+        locale: locale
+      proxy "#{prefix}/contact/index.html",
+        "templates/contact.html",
+        locals: { page: dato.contact },
+        locale: locale
+      proxy "#{prefix}/news/index.html",
+        "templates/news.html",
+        locals: { page: dato.news },
+        locale: locale
+      proxy "#{prefix}/positions/index.html",
+        "templates/positions.html",
+        locals: { page: dato.position },
+        locale: locale
+      proxy "#{prefix}/project/index.html",
+        "templates/project.html",
+        locals: { page: dato.project },
+        locale: locale
+      proxy "#{prefix}/publications/index.html",
+        "templates/publications.html",
+        locals: { page: dato.publication },
+        locale: locale
+    end
   end
 end
 

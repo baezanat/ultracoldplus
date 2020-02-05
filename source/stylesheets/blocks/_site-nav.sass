@@ -1,5 +1,6 @@
 .site-nav
-  background: $base-body-color
+  background: #4D5382 
+  //background: $base-body-color
   +vertical-padding(2)
   position: relative
 
@@ -15,6 +16,20 @@
   width: 100%
 
 .site-nav__logo
+  display: block
+  color: #FFFFFF
+  font-weight: 400
+  font-size: 18px
+  letter-spacing: 2px
+
+  &:hover
+    color: $light-green
+    text-decoration: none
+
+.site-nav__logo--first-line
+  display: block
+
+.site-nav__logo--second-line
   display: block
 
 .site-nav__right
@@ -40,6 +55,9 @@
   +font-size(alpha)
   color: #FFFFFF
 
+  &:hover
+    color: $light-green
+
 .site-nav__menu
   display: none
 
@@ -49,6 +67,10 @@
 
 .site-nav__menu__link
   color: #FFFFFF
+
+  &:hover
+    color: $light-green
+    text-decoration: none
 
   &.is-active
 

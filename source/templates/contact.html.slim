@@ -1,0 +1,23 @@
+/- content_for(:head)
+/  == dato_meta_tags(page)
+
+.top-banner__background
+  .top-banner__background--image-container
+    = image_tag page.picture.file.to_url, class: 'top-banner__background--image'
+  .top-banner__background--title
+    = page.title
+
+section
+  .wrap
+    .formatted-content.main-text
+      = page.location
+      br
+      br
+      = page.how_to_reach_us
+
+    .grid
+      .grid__item.desk-7-12
+        = partial "partials/_form"
+
+      .grid__item.desk-5-12
+        = partial "partials/_map"

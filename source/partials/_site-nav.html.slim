@@ -8,14 +8,19 @@ nav.site-nav
         = link_to locale_path("/"),
           class: "site-nav__logo",
           title: t('nav.home')
-            = inline_svg("logo.svg", id: 'site_nav_logo', title: 'LOGO')
+            span.site-nav__logo--first-line
+              = "ATOM-ION" 
+            span.site-nav__logo--second-line
+              = "FLORENCE"
 
       .site-nav__right
-        .site-nav__topbar
+        //.site-nav__topbar
           = partial "partials/locale-switcher",
-            locals: {block_class: "site-nav__topbar__locale-switcher"}
+            locals: {block_class: "site-nav__topbar__locale-switcher"
+
 
         ul.site-nav__menu
+        
           li.site-nav__menu__item
             = active_link_to t('nav.home'),
               locale_path("/"),

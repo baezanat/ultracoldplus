@@ -11,11 +11,20 @@
 //        .hero__actions
 
 .hero
-  background-color: $hero-body-color
+  background-image: linear-gradient(to right bottom, $navy, $hero-body-color)
   background-position: center center
   background-repeat: no-repeat
-  background-size: cover
+  //background-size: cover
+  width: 60%
+  margin: auto
+  +horizontal-padding(2)
   position: relative
+  border-radius: 100px
+  box-shadow: 0 0 10px #888888
+
+.hero__background--image
+  z-index: -1
+  opacity: 0.5
 
 @if $enable-hero-colored
   @each $color, $value in $all-colors
@@ -35,6 +44,7 @@
   +vertical-padding(4)
   display: table-cell
   vertical-align: middle
+  color: $hero-text-color
 
 .hero__heading
   +font-size(alpha)
@@ -42,12 +52,17 @@
   margin-left: auto
   margin-right: auto
   max-width: 80rem
+  color: $hero-text-color
+  z-index: 1
 
 .hero__text
   +margin-top(2)
   margin-left: auto
   margin-right: auto
   max-width: 75rem
+  color: $hero-text-color
 
 .hero__actions
   +margin-top(2)
+  color: $hero-text-color
+  z-index: 1
