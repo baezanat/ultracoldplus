@@ -7,27 +7,24 @@
   .top-banner__background--title
     = page.title
 
-section
+section.formatted-content
   .wrap
-    .formatted-content.main-text
-      = page.paragraph
-
-section.space--both-2
-  .wrap
-    .formatted-content.main-text
-      = page.paragraph3
+    .main-text--important.align--center.margin--top-5
+      = page.intro
+    .main-text.margin--both-5
+      = page.main_text
       
     .flex--justify-around.flex--align-center
       .flex__item-auto.flex-desk-2-12.flex-tab-4-12
-        = image_tag page.logo1.file.to_url, class: 'funding__logo'
+        = image_tag page.logo1.file.to_url, class: 'logo--large'
       .flex__item-auto.flex-desk-2-12.flex-tab-4-12
-        = image_tag page.logo2.file.to_url, class: 'funding__logo'
+        = image_tag page.logo2.file.to_url, class: 'logo--large'
       .flex__item-auto.flex-desk-2-12.flex-tab-4-12
-        = image_tag page.logo3.file.to_url, class: 'funding__logo'
+        = image_tag page.logo3.file.to_url, class: 'logo--large'
 
 section
   .wrap
-    .hero style="background-image: #{page.hero_image.file.to_url}"
+    .hero
       .hero__body
         .hero__body__inner
           .hero__heading

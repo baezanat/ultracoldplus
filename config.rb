@@ -53,23 +53,24 @@ helpers do
   def site_nav_menu
     [
       dato.team,
+      dato.news_page,
       dato.contact,
-      dato.news,
       dato.position,
       dato.project,
       dato.publication,
-    ]
+    ] # + dato.info_page.each { |pg| dato.pg }
   end
 end
 
- dato.tap do |dato|
-#   dato.articles.each do |article|
-#     proxy(
-#       '/articles/#{article.slug}.html',
-#       '/templates/article.html',
-#       locals: { article: article }
-#     )
-#   end
+dato.tap do |dato|
+#   dato.info_page.each do |info_pg|
+#      proxy(
+#        '/info/#{info_pg.slug}.html',
+#        '/templates/info_page.html',
+#        locals: { page: info_pg },
+#        ignore: true
+#      )
+#    end
 
 #   paginate(
 #     dato.articles.sort_by(&:published_at).reverse,
@@ -124,7 +125,7 @@ end
         locale: locale
       proxy "#{prefix}/news/index.html",
         "templates/news.html",
-        locals: { page: dato.news },
+        locals: { page: dato.news_page },
         locale: locale
       proxy "#{prefix}/positions/index.html",
         "templates/positions.html",
@@ -138,6 +139,11 @@ end
         "templates/publications.html",
         locals: { page: dato.publication },
         locale: locale
+      # dato.info_page.each do |info_pg|
+      # proxy "#{prefix}/info/index.html",
+      # "templates/info_page.html",
+      # locals: { page: info_pg },
+      # locale: locale
     end
   end
 end

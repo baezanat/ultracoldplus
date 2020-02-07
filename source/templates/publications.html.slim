@@ -1,0 +1,39 @@
+section
+  .wrap
+    .page__title--underline
+      = page.popular
+
+    // .grid--large-row-gap 
+    // tried to add a custom made class (see grid utilities) with grid-gap but it
+    // did not work
+    .grid
+
+      - dato.popular_presses.each do |article|
+        
+        .grid__item.width-2-12.align--center
+          = article.date
+
+        .grid__item.width-10-12.main-text.margin--bottom-3
+          = article.title
+          = article.journal_and_link
+        
+          .main-text__smallprint
+            = article.abstract
+
+  .wrap
+    .page__title--underline
+      = page.scientific
+
+    .grid
+
+      - dato.papers.each do |paper|
+        
+        .grid__item.width-2-12.align--center
+          = paper.date
+
+        .grid__item.width-10-12.main-text.margin--bottom-3
+          = paper.title
+          = paper.journal_and_link
+
+          .main-text__smallprint
+            = paper.abstract

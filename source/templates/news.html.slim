@@ -1,9 +1,23 @@
 //- content_for(:head)
   == dato_meta_tags(page)
 
-section.space--both-2
-  .wrap
+section
+  .wrap.formatted-content
+    - if page.title.present?
+      .page__title--underline
+        = page.title
+
     .grid
-      .grid__item.desk-7-12
-        - if page.title.present?
-         = page.title
+
+      - dato.news.each do |news_item|
+        
+        .grid__item.width-3-12.align--center
+          = image_tag news_item.image.file.to_url, class: 'news__image--small'
+
+        .grid__item.width-3-12.main-text.margin--both-3
+          = news_item.date
+
+        .grid__item.width-6-12.main-text.margin--both-3
+          = news_item.text
+
+    .margin--both-3

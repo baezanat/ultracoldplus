@@ -1,20 +1,20 @@
 //- content_for(:head)
   == dato_meta_tags(page)
 
-section.space--both-2
+section
   .wrap
     - if page.title.present?
-      .team__title
+      .page__title--underline
         = page.title
 
-    .grid--middle
+    .grid--middle.align--right
 
       - page.member.each do |memb|
         
-        .team__grid__item--image
-          = image_tag memb.picture.file.to_url, class: 'team-member__image--small'
+        .grid__item.width-7-12.align--center
+          = image_tag memb.picture.file.to_url, class: 'team__image'
 
-        .team__grid__item--text.main-text
+        .grid__item.width-5-12.main-text.align--left
           .strong
             = memb.name
           = memb.title
@@ -23,4 +23,3 @@ section.space--both-2
           br
           = memb.phone
 
-    .margin--both-3
