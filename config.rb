@@ -56,21 +56,31 @@ helpers do
       dato.news_page,
       dato.contact,
       dato.position,
-      dato.project,
+      dato.project_page,
       dato.publication,
     ] # + dato.info_page.each { |pg| dato.pg }
   end
 end
 
 dato.tap do |dato|
-#   dato.info_page.each do |info_pg|
-#      proxy(
-#        '/info/#{info_pg.slug}.html',
-#        '/templates/info_page.html',
-#        locals: { page: info_pg },
-#        ignore: true
-#      )
-#    end
+
+  dato.projects.each do |project|
+    proxy(
+      "projects/#{project.slug}.html",
+      'templates/project-article.html',
+      locals: {project: project},
+      ignore: true
+    )
+  end
+
+  dato.info_pages.each do |info_pg|
+    proxy(
+      "/info/#{info_pg.slug}.html",
+      '/templates/info_page.html',
+      locals: { page: info_pg },
+      ignore: true
+    )
+  end
 
 #   paginate(
 #     dato.articles.sort_by(&:published_at).reverse,
@@ -133,7 +143,7 @@ dato.tap do |dato|
         locale: locale
       proxy "#{prefix}/project/index.html",
         "templates/project.html",
-        locals: { page: dato.project },
+        locals: { page: dato.project_page },
         locale: locale
       proxy "#{prefix}/publications/index.html",
         "templates/publications.html",

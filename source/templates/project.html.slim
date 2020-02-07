@@ -1,9 +1,20 @@
-//- content_for(:head)
-  == dato_meta_tags(page)
-
-section.space--both-2
+section.formatted-content
   .wrap
-    .grid
-      .grid__item.desk-7-12
-        - if page.title.present?
-         = page.title
+    .page__title--underline
+      = page.title
+
+section.formatted-content
+  .wrap.main-text--important.margin--both-5
+    = page.intro
+
+    - dato.projects.each do |project|
+      
+      .main-text--important.margin--top-3
+        a.main-text__link href="/projects/#{project.slug}.html"
+          = project.title
+
+      .main-text.padding--all-3
+        = truncate_words(Sanitize.fragment(project.description), length: 50)
+        a href='/articles/
+          = article.slug
+          .html'
