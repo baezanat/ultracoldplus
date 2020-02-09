@@ -16,12 +16,18 @@
 
 .main-text
     +font-size(delta)
-    line-height: 1.7
+    line-height: 1.3
+
+    +at-breakpoint(desk)
+      line-height: 1.7
 
 .main-text--important
     +font-size(gamma)
-    line-height: 2
+    line-height: 1.5
     font-weight: 250
+
+    +at-breakpoint(desk)
+      line-height: 2 
 
 .main-text__link
     color: $red

@@ -1,7 +1,12 @@
 .logo--large
     width: 80%
     height: auto
-    +margin-bottom(4)
+
+    +at-breakpoint(lap)
+      +margin-bottom(4)
+    
+    +at-breakpoint(lte-lap)
+      +margin-bottom(2)
 
 .team__image
     width: 200px

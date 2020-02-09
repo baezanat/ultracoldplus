@@ -1,6 +1,5 @@
 .top-banner__background
     background-color: $base-body-color
-    //height: 50vh
     z-index: 0
     display: flex
     flex-direction: column
@@ -12,10 +11,18 @@
 .top-banner__background--image
     z-index: 1
     width: 90% 
-    //height: 330px
     box-shadow: 0 0 10px black
 
-.top-banner__background--image
+    +except-at-breakpoint(lte-tab)
+      display: none
+
+.top-banner__background--image-lap
+    z-index: 1
+    width: 90% 
+    box-shadow: 0 0 10px black
+    
+    +at-breakpoint(lte-tab)
+      display: none
 
 .top-banner__background--title
     color: #FFFFFF
@@ -24,5 +31,4 @@
     +font-size(beta)
     letter-spacing: 2px
     text-transform: uppercase
-    padding-top: 40px
-    padding-bottom: 40px
+    padding: 40px 25px

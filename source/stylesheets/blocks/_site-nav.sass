@@ -12,11 +12,12 @@
 
 .site-nav__left
   flex: 1 0 20%
-  max-width: 20%
+  max-width: 40%
   width: 100%
 
 .site-nav__logo
-  display: block
+  display: flex
+  flex-direction: column
   color: #FFFFFF
   font-weight: 400
   font-size: 18px
@@ -27,10 +28,12 @@
     text-decoration: none
 
 .site-nav__logo--first-line
-  display: block
+  //display: block
+  width: 100%
 
 .site-nav__logo--second-line
-  display: block
+  //display: block
+  width: 100%
 
 .site-nav__right
   flex: 1 0 60%
@@ -80,3 +83,6 @@
 
   .site-nav__menu
     display: block
+
+.site-nav__menu--mobile
+  justify-self: end

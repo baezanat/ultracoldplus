@@ -3,33 +3,36 @@
 
 .top-banner__background
   .top-banner__background--image-container
-    = image_tag page.banner.file.to_url, class: 'top-banner__background--image'
+    = image_tag page.picture.file.to_url, class: 'top-banner__background--image-lap'
+    = image_tag page.mobile_pic.file.to_url, class: 'top-banner__background--image'
   .top-banner__background--title
     = page.title
 
 section.formatted-content
   .wrap
-    .main-text--important.align--center.margin--top-5
+    .main-text--important.align--center.margin--top-3.margin--top-5-on-desk
       = page.intro
-    .main-text.margin--both-5
+    .main-text.margin--both-2.margin--top-5-on-desk
       = page.main_text
       
-    .flex--justify-around.flex--align-center
-      .flex__item-auto.flex-desk-2-12.flex-tab-4-12
-        = image_tag page.logo1.file.to_url, class: 'logo--large'
-      .flex__item-auto.flex-desk-2-12.flex-tab-4-12
-        = image_tag page.logo2.file.to_url, class: 'logo--large'
-      .flex__item-auto.flex-desk-2-12.flex-tab-4-12
-        = image_tag page.logo3.file.to_url, class: 'logo--large'
+    - if page.logo1.present? && (page.logo2.present? && page.logo3.present?)
+      .flex--justify-around.flex--align-center
+        .flex__item-auto.flex-lap-2-12.flex-2-12
+          = image_tag page.logo1.file.to_url, class: 'logo--large'
+        .flex__item-auto.flex-lap-2-12.flex-2-12
+          = image_tag page.logo2.file.to_url, class: 'logo--large'
+        .flex__item-auto.flex--lap-2-12.flex-2-12
+          = image_tag page.logo3.file.to_url, class: 'logo--large'
 
-section
-  .wrap
-    .hero
-      .hero__body
-        .hero__body__inner
-          .hero__heading
-            = page.announcement
-          .hero__actions
-            button.button--white-outline
-              = link_to 'mailto:sias@lens.unifi.it', class: 'hero__actions--link'
-                = page.action
+- if page.announcement.present? && page.action.present?
+  section
+    .wrap
+      .hero
+        .hero__body
+          .hero__body__inner
+            .hero__heading
+              = page.announcement
+            .hero__actions
+              button.button--white-outline
+                = link_to 'mailto:sias@lens.unifi.it', class: 'hero__actions--link'
+                  = page.action

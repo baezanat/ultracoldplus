@@ -1,23 +1,20 @@
 nav.site-nav
   .wrap
     .site-nav__inner
-      = link_to "#",
-        class: "site-nav__menu-toggler js-nav-toggler--left" do
-        = i("hamburger")
       .site-nav__left
         = link_to locale_path("/"),
           class: "site-nav__logo",
           title: t('nav.home')
-            span.site-nav__logo--first-line
-              = "ATOM-ION" 
-            span.site-nav__logo--second-line
-              = "FLORENCE"
+            .site-nav__logo--first-line
+              | ATOM-ION 
+            .site-nav__logo--second-line
+              | FLORENCE
 
       .site-nav__right
-        //.site-nav__topbar
-          = partial "partials/locale-switcher",
-            locals: {block_class: "site-nav__topbar__locale-switcher"
 
+        = link_to "#",
+          class: "site-nav__menu-toggler js-nav-toggler--left" do
+          = i("hamburger")
 
         ul.site-nav__menu
         
@@ -32,6 +29,3 @@ nav.site-nav
                 locale_path(page.slug),
                 class: "site-nav__menu__link"
 
-      = link_to "#",
-        class: "site-nav__menu-toggler js-nav-toggler--right" do
-        i.icon--hamburger

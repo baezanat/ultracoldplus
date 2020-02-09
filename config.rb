@@ -119,17 +119,9 @@ dato.tap do |dato|
         "templates/team.html",
         locals: { page: dato.team },
         locale: locale
-      proxy "#{prefix}/contact/index.html",
-        "templates/contact.html",
-        locals: { page: dato.contact },
-        locale: locale
       proxy "#{prefix}/news/index.html",
         "templates/news.html",
         locals: { page: dato.news_page },
-        locale: locale
-      proxy "#{prefix}/positions/index.html",
-        "templates/positions.html",
-        locals: { page: dato.position },
         locale: locale
       proxy "#{prefix}/project/index.html",
         "templates/project.html",
@@ -139,17 +131,12 @@ dato.tap do |dato|
         "templates/publications.html",
         locals: { page: dato.publication },
         locale: locale
-      # dato.info_pages.each do |info_pg|
-      # proxy "#{prefix}/info/index.html",
-      # "templates/info_page.html",
-      # locals: { page: info_pg },
-      # locale: locale
       
       dato.info_pages.each do |info_page|
         proxy(
           "#{prefix}/#{info_page.slug}/index.html",
-          '/templates/info_page.html',
-          locals: { info_page: info_page },
+          '/templates/homepage.html',
+          locals: { page: info_page },
           locale:locale
         )
       end
