@@ -54,11 +54,9 @@ helpers do
     [
       dato.team,
       dato.news_page,
-      dato.contact,
-      dato.position,
       dato.project_page,
       dato.publication,
-    ] # + dato.info_page.each { |pg| dato.pg }
+    ] + dato.info_pages.each { |pg| pg }
   end
 end
 
@@ -73,14 +71,6 @@ dato.tap do |dato|
     )
   end
 
-  dato.info_pages.each do |info_pg|
-    proxy(
-      "/info/#{info_pg.slug}.html",
-      '/templates/info_page.html',
-      locals: { page: info_pg },
-      ignore: true
-    )
-  end
 
 #   paginate(
 #     dato.articles.sort_by(&:published_at).reverse,
@@ -149,11 +139,21 @@ dato.tap do |dato|
         "templates/publications.html",
         locals: { page: dato.publication },
         locale: locale
-      # dato.info_page.each do |info_pg|
+      # dato.info_pages.each do |info_pg|
       # proxy "#{prefix}/info/index.html",
       # "templates/info_page.html",
       # locals: { page: info_pg },
       # locale: locale
+      
+      dato.info_pages.each do |info_page|
+        proxy(
+          "#{prefix}/#{info_page.slug}/index.html",
+          '/templates/info_page.html',
+          locals: { info_page: info_page },
+          locale:locale
+        )
+      end
+      
     end
   end
 end
