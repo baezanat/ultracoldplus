@@ -17,18 +17,18 @@ section.formatted-content
       
     - if page.logo1.present? && (page.logo2.present? && page.logo3.present?)
       .flex--justify-around.flex--align-center
-        .flex__item-auto.flex-lap-2-12.flex-2-12
+        .flex__item-auto.flex-3-12.flex-desk-2-12
           = image_tag page.logo1.file.to_url, class: 'logo--large'
-        .flex__item-auto.flex-lap-2-12.flex-2-12
+        .flex__item-auto.flex-3-12.flex-desk-2-12
           = image_tag page.logo2.file.to_url, class: 'logo--large'
-        .flex__item-auto.flex--lap-2-12.flex-2-12
+        .flex__item-auto.flex-3-12.flex-desk-2-12
           = image_tag page.logo3.file.to_url, class: 'logo--large'
 
 - if page.announcement.present? && page.action.present?
   section
     .wrap
       .hero
-        .hero__body
+        .hero__body.margin--top-3-on-desk
           .hero__body__inner
             .hero__heading
               = page.announcement
