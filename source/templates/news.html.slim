@@ -14,18 +14,14 @@ section
         .grid__item.width-3-12.align--center
           = image_tag news_item.image.file.to_url, class: 'news__image--small'
 
-        .news__responsive--tab.grid__item.width-3-12.main-text.margin--both-1.margin--both-3-on-desk
+        .visible--on-tab.grid__item.width-3-12.main-text.margin--both-3
           = news_item.date
 
-
-        // .visible--on-desk.grid__item.width-3-12.main-text.margin--both-1.margin--both-3-on-desk
-          // = news_item.date
-
-        .news__responsive--tab.width-6-12.grid__item.main-text.margin--both-3
+        .visible--on-tab.width-6-12.grid__item.main-text.margin--both-3
           = news_item.text
-        .news__responsive--mobile.width-9-12.grid__item.main-text.margin--both-2.strong
+        .hidden--on-tab.width-9-12.grid__item.main-text.margin--both-2.strong
           = news_item.date
-        .news__responsive--mobile.grid__item.width-12-12.margin--bottom-2
+        .hidden--on-tab.grid__item.width-12-12.margin--bottom-2
           = news_item.text
 
-    .news__responsive--tab.margin--both-3
+    .visible--on-tab.margin--both-3

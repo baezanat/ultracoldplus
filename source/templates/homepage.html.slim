@@ -16,12 +16,12 @@ section.formatted-content
       = page.main_text
       
     - if page.logo1.present? && (page.logo2.present? && page.logo3.present?)
-      .flex--justify-around.flex--align-center
-        .flex__item-auto.flex-3-12.flex-desk-2-12
+      .flex--justify-between.flex--align-center
+        .flex__item.flex-4-12.flex--justify-center
           = image_tag page.logo1.file.to_url, class: 'logo--large'
-        .flex__item-auto.flex-3-12.flex-desk-2-12
+        .flex__item.flex-4-12.flex--justify-center
           = image_tag page.logo2.file.to_url, class: 'logo--large'
-        .flex__item-auto.flex-3-12.flex-desk-2-12
+        .flex__item.flex-4-12.flex--justify-center
           = image_tag page.logo3.file.to_url, class: 'logo--large'
 
 - if page.announcement.present? && page.action.present?
