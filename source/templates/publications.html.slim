@@ -1,36 +1,27 @@
 section
   .wrap
-    .page__title--underline
-      = page.popular
 
-    .grid
+    - dato.categories.each do |category|
 
-      - dato.popular_presses.each do |article|
-        
-        .grid__item.width-2-12.align--center
-          = article.date
+      .margin--top-3.margin--top-5-on-lap.page__title--underline
+        = category.title
 
-        .grid__item.width-10-12.main-text.margin--bottom-3
-          = article.title
-          = article.journal_and_link
-        
-          .main-text__smallprint
-            = article.abstract
+      .grid
+        - paper.select { |article| article.category.slug == category.slug }.sort_by(&:date).reverse.each do |article|
 
-  .wrap
-    .page__title--underline
-      = page.scientific
+          .hidden--on-tab.grid__item.main-text.padding--bottom-1
+            strong = article.date
 
-    .grid
+          .visible--on-tab.grid__item.main-text.width-2-12.align--center
+            = article.date
 
-      - dato.papers.each do |paper|
-        
-        .grid__item.width-2-12.align--center
-          = paper.date
+          .grid__item.tab-10-12.main-text.margin--bottom-3
 
-        .grid__item.width-10-12.main-text.margin--bottom-3
-          = paper.title
-          = paper.journal_and_link
+            = article.title
+          
+            = link_to article.journal,
+              article.link,
+              class: "main-text__link"
 
-          .main-text__smallprint
-            = paper.abstract
+            .visible--on-tab.main-text__smallprint
+              = article.abstract

@@ -4,22 +4,23 @@
 section
   .wrap
     - if page.title.present?
-      .page__title--underline
+      .margin--top-3.margin--top-5-on-lap.page__title--underline
         = page.title
 
-    .grid--middle.align--right
+    .grid--middle.align--right-on-tab
 
       - page.member.each do |memb|
         
-        .grid__item.width-7-12.align--center
+        .grid__item.tab-7-12.align--center
           = image_tag memb.picture.file.to_url, class: 'team__image'
 
-        .grid__item.width-5-12.main-text.align--left
-          .strong
-            = memb.name
+        .grid__item.tab-5-12.main-text.align--center.align--left-on-tab
+          strong = memb.name
+          br
           = memb.title
           br
           = memb.email
           br
           = memb.phone
 
+        .hidden--on-tab.margin--bottom-3

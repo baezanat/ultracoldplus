@@ -129,7 +129,8 @@ dato.tap do |dato|
         locale: locale
       proxy "#{prefix}/publications/index.html",
         "templates/publications.html",
-        locals: { page: dato.publication },
+        locals: { page: dato.publication,
+                  paper: dato.papers.sort_by(&:date).reverse },
         locale: locale
       
       dato.info_pages.each do |info_page|
