@@ -3,18 +3,18 @@ section.formatted-content
     .margin--top-3.margin--top-5-on-lap.page__title--underline
       = page.title
 
-section.formatted-content
-  .wrap.main-text--important.margin--both-1.margin--both-5-on-lap
+section.formatted-content.wrap
+  .main-text--important.margin--both-5-on-lap
     = page.intro
 
-    - dato.projects.each do |project|
-      
-      .main-text--important.margin--top-1.margin--top-3-on-lap
-        a.main-text__link href="/projects/#{project.slug}.html"
-          = project.title
+  - dato.projects.each do |project|
+    
+    .main-text--important.margin--top-2.margin--top-3-on-lap
+      a.main-text__link href="/projects/#{project.slug}.html"
+        = project.title
 
-      .visible--on-tab.main-text.padding--left-2.padding--top-1.padding--all-3-on-lap
-        = truncate_words(Sanitize.fragment(project.description), length: 50)
-        a href='/articles/
-          = article.slug
-          .html'
+    .visible--on-tab.main-text.padding--left-2.padding--all-3
+      = truncate_words(Sanitize.fragment(project.description), length: 50)
+      a href='/articles/
+        = article.slug
+        .html'
