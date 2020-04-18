@@ -54,22 +54,22 @@ helpers do
     [
       dato.team,
       dato.news_page,
-      dato.project_page,
+      # dato.project_page,
       dato.publication,
     ] + dato.info_pages.each { |pg| pg }
   end
 end
 
-dato.tap do |dato|
-
-  dato.projects.each do |project|
-    proxy(
-      "projects/#{project.slug}.html",
-      'templates/project-article.html',
-      locals: {project: project},
-      ignore: true
-    )
-  end
+# dato.tap do |dato|
+# 
+#   dato.projects.each do |project|
+#     proxy(
+#       "projects/#{project.slug}.html",
+#       'templates/project-article.html',
+#       locals: {project: project},
+#       ignore: true
+#     )
+#   end
 
 
 #   paginate(
@@ -123,10 +123,10 @@ dato.tap do |dato|
         "templates/news.html",
         locals: { page: dato.news_page },
         locale: locale
-      proxy "#{prefix}/project/index.html",
-        "templates/project.html",
-        locals: { page: dato.project_page },
-        locale: locale
+      # proxy "#{prefix}/project/index.html",
+      #   "templates/project.html",
+      #   locals: { page: dato.project_page },
+      #   locale: locale
       proxy "#{prefix}/publications/index.html",
         "templates/publications.html",
         locals: { page: dato.publication,
