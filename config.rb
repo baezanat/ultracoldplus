@@ -60,7 +60,7 @@ helpers do
   end
 end
 
-# dato.tap do |dato|
+dato.tap do |dato|
 # 
 #   dato.projects.each do |project|
 #     proxy(
