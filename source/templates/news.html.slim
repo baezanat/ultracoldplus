@@ -9,7 +9,7 @@ section
 
     .grid
 
-      - dato.news.each do |news_item|
+      - dato.news.sort_by!(&:date).reverse.each do |news_item|
         
         .grid__item.width-3-12.align--center
           = image_tag news_item.image.file.to_url, class: 'news__image--small'
