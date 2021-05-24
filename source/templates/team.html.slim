@@ -24,3 +24,23 @@ section
           = memb.phone
 
         .hidden--on-tab.margin--bottom-3
+        
+    - if page.section_title.present?
+      .margin--top-3.margin--top-5-on-lap.page__title--underline
+        = page.section_title
+
+    .grid--middle.align--right-on-tab
+      - page.past_member.each do |past_memb| 
+        .grid__item.tab-7-12.align--center
+          = image_tag past_memb.picture.file.to_url, class: 'team__image'
+
+        .grid__item.tab-5-12.main-text.align--center.align--left-on-tab
+          strong = past_memb.name
+          br
+          = past_memb.title
+          br
+          = past_memb.email
+          br
+          = past_memb.phone
+
+        .hidden--on-tab.margin--bottom-3
